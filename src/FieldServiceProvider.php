@@ -16,8 +16,8 @@ class FieldServiceProvider extends ServiceProvider
     public function boot()
     {
         Nova::serving(function (ServingNova $event) {
-            Nova::script('google-autocomplete-address', __DIR__.'/../dist/js/field.js');
-            Nova::style('google-autocomplete-address', __DIR__.'/../dist/css/field.css');
+            Nova::script('google-autocomplete', __DIR__.'/../dist/js/field.js');
+            Nova::style('google-autocomplete', __DIR__.'/../dist/css/field.css');
         });
     }
 

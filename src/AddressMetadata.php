@@ -4,20 +4,14 @@ namespace Naif\AddressAutocomplete;
 
 use Laravel\Nova\Fields\Field;
 
-class GoogleAutocompleteAdderss extends Field
+class GoogleAutocomplete extends Field
 {
     /**
      * The field's component.
      *
      * @var string
      */
-    public $component = 'google-autocomplete-address';
-
-    public function countries($list){
-        return $this->withMeta([
-            'countries' => $list
-        ]);
-    }
+    public $component = 'address-metadata';
 
     /**
      * Specify the extra metadata you need from address response.

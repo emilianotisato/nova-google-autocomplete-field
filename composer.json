@@ -1,5 +1,5 @@
 {
-    "name": "emiliano/nova-google-autocomplete",
+    "name": "emiliano/nova-google-autocomplete-field",
     "description": "This Nova Package it's a Field that allows you to Autocomplete addresses with Google Place API and get the full metadata (lat and long, etc).",
     "keywords": [
         "laravel",
@@ -14,13 +14,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Emilianotisato\\GoogleAutocompleteAddress\\": "src/"
+            "Emilianotisato\\GoogleAutocomplete\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Emilianotisato\\GoogleAutocompleteAddress\\FieldServiceProvider"
+                "Emilianotisato\\GoogleAutocomplete\\FieldServiceProvider"
             ]
         }
     },
