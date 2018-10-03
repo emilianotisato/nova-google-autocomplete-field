@@ -14,6 +14,8 @@
                 </vue-google-autocomplete>
             </div>
 
+            <p v-if="value != ''" class="my-2 text-success" v-text="value"></p>
+
             <p v-if="hasError" class="my-2 text-danger">
                 {{ firstError }}
             </p>
@@ -31,11 +33,18 @@ export default {
     mixins: [FormField, HandlesValidationErrors],
 
     props: ['resourceName', 'resourceId', 'field'],
+
     data: function () {
         return {
             address: ''
         }
     },
+
+    mounted() {
+        console.log('Test.. ', this.value)
+        this.address = this.value
+    },
+
     methods: {
 
         /**
@@ -43,8 +52,10 @@ export default {
          */
         getAddressData: function (addressData, placeResultData, id) {
             console.log(addressData, placeResultData, id)
-            this.address = addressData;
-            this.value = addressData
+            this.handleChange(placeResultData.formatted_address)
+            window.l1 = addressData
+            window.l2 = placeResultData
+
         },
 
         /**

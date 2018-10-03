@@ -14,13 +14,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Emilianotisato\\GoogleAutocomplete\\": "src/"
+            "EmilianoTisato\\GoogleAutocomplete\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Emilianotisato\\GoogleAutocomplete\\FieldServiceProvider"
+                "EmilianoTisato\\GoogleAutocomplete\\FieldServiceProvider"
             ]
         }
     },

@@ -1,6 +1,6 @@
 <?php
 
-namespace Emilianotisato\GoogleAutocomplete;
+namespace EmilianoTisato\GoogleAutocomplete;
 
 use Laravel\Nova\Fields\Field;
 
