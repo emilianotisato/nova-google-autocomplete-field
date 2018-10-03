@@ -7,7 +7,7 @@ This field allows you to work with Google Places API to autocomplete on user inp
 You can install the package in to a Laravel app that uses Nova via composer:
 
 ```bash
-composer require emilianotisato/nova-google-autocomplete
+composer require emilianotisato/nova-google-autocomplete-field
 ```
 
 ## Usage:
