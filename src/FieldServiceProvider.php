@@ -1,6 +1,6 @@
 <?php
 
-namespace Naif\AddressAutocomplete;
+namespace Emilianotisato\GoogleAutocomplete;
 
 use Laravel\Nova\Nova;
 use Laravel\Nova\Events\ServingNova;

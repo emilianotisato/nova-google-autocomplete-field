@@ -1,6 +1,6 @@
 <?php
 
-namespace Naif\AddressAutocomplete;
+namespace Emilianotisato\GoogleAutocomplete;
 
 use Laravel\Nova\Fields\Field;
 

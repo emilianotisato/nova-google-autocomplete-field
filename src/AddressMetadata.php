@@ -1,10 +1,10 @@
 <?php
 
-namespace Naif\AddressAutocomplete;
+namespace Emilianotisato\GoogleAutocomplete;
 
 use Laravel\Nova\Fields\Field;
 
-class GoogleAutocomplete extends Field
+class AddressMetadata extends Field
 {
     /**
      * The field's component.
