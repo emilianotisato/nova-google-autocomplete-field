@@ -1,19 +1,21 @@
 <template>
-    <default-field :field="field">
-        <template slot="field">
-            <input :id="field.name" type="text"
-                :disabled="field.disabled"
-                class="w-full form-control form-input form-input-bordered"
-                :class="errorClasses"
-                :placeholder="field.name"
-                v-model="value"
-            />
+    <div :class="{ invisible: field.invisible }">
+        <default-field :field="field">
+            <template slot="field">
+                <input :id="field.name" type="text"
+                    :disabled="field.disabled"
+                    class="w-full form-control form-input form-input-bordered"
+                    :class="errorClasses"
+                    :placeholder="field.name"
+                    v-model="value"
+                />
 
-            <p v-if="hasError" class="my-2 text-danger">
-                {{ firstError }}
-            </p>
-        </template>
-    </default-field>
+                <p v-if="hasError" class="my-2 text-danger">
+                    {{ firstError }}
+                </p>
+            </template>
+        </default-field>
+    </div>
 </template>
 
 <script>
@@ -58,3 +60,10 @@ export default {
     }
 }
 </script>
+
+<style>
+    .invisible {
+        visibility: hidden;
+        position: absolute;
+    }
+</style>

@@ -26,7 +26,8 @@ class AddressMetadata extends Text
         parent::__construct($name, $attribute, $resolveCallback);
 
         $this->withMeta([
-            'disabled' => false
+            'disabled' => false,
+            'invisible' => false
         ]);
     }
 
@@ -49,5 +50,15 @@ class AddressMetadata extends Text
     public function disabled()
     {  
         return $this->withMeta(['disabled' => true]);        
+    }
+
+    /**
+     * Set the field invisible but save it
+     *
+     * @return void
+     */
+    public function invisible()
+    {  
+        return $this->withMeta(['invisible' => true]);        
     }
 }

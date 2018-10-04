@@ -62,4 +62,7 @@ AddressMetadata::make('long')->fromValue('longitude'),
 
 // You can disable the field so the user can't edit the metadata
 AddressMetadata::make('long')->fromValue('longitude')->disabled(),
+
+// Or you can make the field invisible in the form but collect the data anyways
+AddressMetadata::make('long')->fromValue('longitude')->invisible(),
 ```
