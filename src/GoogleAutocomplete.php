@@ -13,6 +13,28 @@ class GoogleAutocomplete extends Field
      */
     public $component = 'google-autocomplete';
 
+    /**
+     * Initialize the field
+     *
+     * @param [type] $name
+     * @param [type] $attribute
+     * @param [type] $resolveCallback
+     */
+    public function __construct($name, $attribute = null, $resolveCallback = null)
+    {
+        parent::__construct($name, $attribute, $resolveCallback);
+
+        $this->withMeta([
+            'addressObject' => []
+        ]);
+    }
+
+    /**
+     * Pass a country codes array
+     *
+     * @param [type] $list
+     * @return void
+     */
     public function countries($list){
         return $this->withMeta([
             'countries' => $list
@@ -20,14 +42,18 @@ class GoogleAutocomplete extends Field
     }
 
     /**
-     * Specify the extra metadata you need from address response.
+     * Specify the extra address object fields you need from address response.
      *
      * @param string $meta
      *
      * @return $this
      */
-    public function metaData($meta = [])
+    public function withValues(array $data)
     {
-        return $this->withMeta($meta);
+        $currentObject = $this->meta['addressObject'];
+        
+        return $this->withMeta([
+            'addressObject' => array_merge($currentObject, $data)
+        ]);
     }
 }

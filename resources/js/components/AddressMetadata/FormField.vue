@@ -27,7 +27,7 @@ export default {
      * Mount the component.
      */
     mounted() {
-        Nova.$on('address-metadata-update-' + this.field.name, ({value}) => {
+        Nova.$on('address-metadata-update-' + this.field.addressValue, ({value}) => {
             this.value = value;
         })
     },

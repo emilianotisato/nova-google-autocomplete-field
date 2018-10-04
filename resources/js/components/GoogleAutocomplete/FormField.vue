@@ -7,14 +7,14 @@
                         :id="field.name"
                         class="w-full form-control form-input form-input-bordered"
                         :class="errorClasses"
-                        :placeholder="field.name"
+                        :placeholder="placeholder"
                         :country="field.countries"
                         v-model="value"
                         v-on:placechanged="getAddressData">
                 </vue-google-autocomplete>
             </div>
 
-            <p v-if="value != ''" class="my-2 text-success" v-text="value"></p>
+            <p v-if="value != ''" class="my-2 text-success">{{__('Current address')}}: {{ value }}</p>
 
             <p v-if="hasError" class="my-2 text-danger">
                 {{ firstError }}
@@ -40,9 +40,14 @@ export default {
         }
     },
 
-    mounted() {
-        console.log('Test.. ', this.value)
-        this.address = this.value
+    computed: {
+        placeholder() {
+            if (this.value != '') {
+                return this.__('Update the address if needed...')
+            }
+
+            return this.field.name
+        }
     },
 
     methods: {
@@ -50,24 +55,20 @@ export default {
         /**
          * Get address
          */
-        getAddressData: function (addressData, placeResultData, id) {
-            console.log(addressData, placeResultData, id)
+        getAddressData: function (addressData, placeResultData) {
+            // Save current data address as a string
             this.handleChange(placeResultData.formatted_address)
-            window.l1 = addressData
-            window.l2 = placeResultData
 
-        },
-
-        /**
-         * Handle change and pass metadata
-         */
-        handleKeydown(event) {
-            this.field.metaData.forEach(element => {
-                Nova.$emit('address-metadata-update-' + element, {
-                    value: event.target.value
-                })
+            // Emmit events to by catch up for the other AddressMetadata fields
+            this.field.addressObject.forEach(element => {
+                if(addressData.hasOwnProperty(element)) {
+                    Nova.$emit('address-metadata-update-' + element, {
+                        value: addressData[element]
+                    })
+                }
             });
         },
+
         /*
          * Set the initial, internal value for the field.
          */

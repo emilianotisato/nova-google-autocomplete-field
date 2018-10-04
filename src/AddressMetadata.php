@@ -2,7 +2,8 @@
 
 namespace EmilianoTisato\GoogleAutocomplete;
 
-use Laravel\Nova\Fields\Field;
+use Laravel\Nova\Element;
+use Laravel\Nova\Fields\Text;
 
 class AddressMetadata extends Field
 {
@@ -13,15 +14,8 @@ class AddressMetadata extends Field
      */
     public $component = 'address-metadata';
 
-    /**
-     * Specify the extra metadata you need from address response.
-     *
-     * @param string $meta
-     *
-     * @return $this
-     */
-    public function metaData($meta = [])
+    public function getValue(string $addressValue)
     {
-        return $this->withMeta($meta);
+        return $this->withMeta(['addressValue' => $addressValue]);
     }
 }
