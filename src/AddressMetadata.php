@@ -14,7 +14,7 @@ class AddressMetadata extends Field
      */
     public $component = 'address-metadata';
 
-    public function getValue(string $addressValue)
+    public function fromValue(string $addressValue)
     {
         return $this->withMeta(['addressValue' => $addressValue]);
     }
