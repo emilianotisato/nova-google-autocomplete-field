@@ -59,4 +59,7 @@ GoogleAutocomplete::make('Address')->withValues(['latitude', 'longitude']),
 // And you can store the values by autocomplete like this
 AddressMetadata::make('lat')->fromValue('latitude'),
 AddressMetadata::make('long')->fromValue('longitude'),
+
+// You can disable the field so the user can't edit the metadata
+AddressMetadata::make('long')->fromValue('longitude')->disabled(),
 ```
