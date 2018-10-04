@@ -5,7 +5,7 @@ namespace EmilianoTisato\GoogleAutocomplete;
 use Laravel\Nova\Element;
 use Laravel\Nova\Fields\Text;
 
-class AddressMetadata extends Field
+class AddressMetadata extends Text
 {
     /**
      * The field's component.
