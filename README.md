@@ -1,4 +1,4 @@
-## Nova Google AutoComplete Field Package
+# Nova Google AutoComplete Field Package
 
 This field allows you to work with Google Places API to autocomplete on user input and get the full real address with all the metadata (like latitude and longitude).
 
@@ -11,23 +11,24 @@ composer require emilianotisato/nova-google-autocomplete-field
 ```
 
 Add the below to /resources/views/vendor/nova/layout.blade.php (this you can copy from the nova repository to override the original)
-* To get resualts in specific language add `&language=en` to the below script url
+
+* To get results in specific language add `&language=en` to the below script url
 
 ```php
 <script src="https://maps.googleapis.com/maps/api/js?key={{env('ADDRESS_AUTOCOMPLETE_API_KEY')}}&libraries=places"></script>
-             
 ```
 
 Add the below to your `.env` file
 
 Create an app and enable Places API and create credentials to get your API key
-https://console.developers.google.com
+[https://console.developers.google.com](https://console.developers.google.com)
 
 ```shell
 ADDRESS_AUTOCOMPLETE_API_KEY=############################
 ```
 
-## Usage:
+## Usage
+
 Add the use decalaration to your resource and use the fields:
 
 ```php
@@ -37,13 +38,13 @@ use EmilianoTisato\GoogleAutocomplete\GoogleAutocomplete;
 GoogleAutocomplete::make('Address'),
 
 //You can add a country or countries to autocomplete or leave empty for all.
-          
+
 // Specify a single country
-AddressAutocomplete::make('Address')
+GoogleAutocomplete::make('Address')
           ->countries('US'),
-                
+
 // Specify multiple countries [array]
-AddressAutocomplete::make('Address')
+GoogleAutocomplete::make('Address')
           ->countries(['US','AU]),
 ```
 
