@@ -14,7 +14,7 @@
                 </vue-google-autocomplete>
             </div>
 
-            <p v-if="value != ''" class="my-2 text-success">{{__('Current address')}}: {{ value }}</p>
+            <p v-if="value != ''" class="my-2 text-success">{{ translate.current_address }}: {{ value }}</p>
 
             <p v-if="hasError" class="my-2 text-danger">
                 {{ firstError }}
@@ -41,9 +41,13 @@ export default {
     },
 
     computed: {
+        translate() {
+            return Nova.config.google_autocomplete_translations
+        },
+
         placeholder() {
             if (this.value != '') {
-                return this.__('Update the address if needed...')
+                return this.translate.update_address
             }
 
             return this.field.name
