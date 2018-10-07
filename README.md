@@ -67,3 +67,12 @@ AddressMetadata::make('long')->fromValue('longitude')->disabled(),
 // Or you can make the field invisible in the form but collect the data anyways
 AddressMetadata::make('long')->fromValue('longitude')->invisible(),
 ```
+
+
+## Localization
+
+If you want this package in your language, just create a json lang file in your `resources/lang/vendor/google-autocomplete` folder. Example
+
+```
+resources/lang/vendor/google-autocomplete/es.json
+```
