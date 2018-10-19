@@ -10,6 +10,7 @@
                         :placeholder="placeholder"
                         :country="field.countries"
                         v-model="value"
+                        v-on:keypress.enter.prevent=""
                         v-on:placechanged="getAddressData">
                 </vue-google-autocomplete>
             </div>
