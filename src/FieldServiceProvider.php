@@ -19,6 +19,10 @@ class FieldServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../resources/lang' => resource_path('lang/vendor/google-autocomplete'),
             ], 'google-autocomplete-lang');
+
+            $this->publishes([
+                __DIR__.'/../config' => config_path(),
+            ], 'google-autocomplete-config');
         }
 
         

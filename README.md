@@ -15,7 +15,7 @@ Add the below to /resources/views/vendor/nova/layout.blade.php (this you can cop
 * To get results in specific language add `&language=en` to the below script url
 
 ```php
-<script src="https://maps.googleapis.com/maps/api/js?key={{env('ADDRESS_AUTOCOMPLETE_API_KEY')}}&libraries=places"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{config('google-autocomplete.api_key')}}&libraries=places"></script>
 ```
 
 Add the below to your `.env` file
