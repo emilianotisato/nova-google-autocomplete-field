@@ -10,21 +10,27 @@ You can install the package in to a Laravel app that uses Nova via composer:
 composer require emilianotisato/nova-google-autocomplete-field
 ```
 
+Now publish config and localization files:
+
+```shell
+php artisan vendor:publish --provider="EmilianoTisato\GoogleAutocomplete\FieldServiceProvider"
+```
+
+Create an app and enable Places API and create credentials to get your API key
+[https://console.developers.google.com](https://console.developers.google.com)
+
+Add the below to your `.env` file
+
+```shell
+ADDRESS_AUTOCOMPLETE_API_KEY=############################
+```
+
 Add the below to /resources/views/vendor/nova/layout.blade.php (this you can copy from the nova repository to override the original)
 
 * To get results in specific language add `&language=en` to the below script url
 
 ```php
 <script src="https://maps.googleapis.com/maps/api/js?key={{config('google-autocomplete.api_key')}}&libraries=places"></script>
-```
-
-Add the below to your `.env` file
-
-Create an app and enable Places API and create credentials to get your API key
-[https://console.developers.google.com](https://console.developers.google.com)
-
-```shell
-ADDRESS_AUTOCOMPLETE_API_KEY=############################
 ```
 
 ## Usage
