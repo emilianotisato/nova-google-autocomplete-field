@@ -27,6 +27,10 @@ class GoogleAutocomplete extends Field
         $this->withMeta([
             'addressObject' => []
         ]);
+
+        $this->withMeta([
+            'type' => ''
+        ]);
     }
 
     /**
@@ -38,6 +42,20 @@ class GoogleAutocomplete extends Field
     public function countries($list){
         return $this->withMeta([
             'countries' => $list
+        ]);
+    }
+
+    /**
+     * Pass a type val
+     *
+     * https://developers.google.com/places/supported_types#table3
+     *
+     * @param string $type
+     * @return void
+     */
+    public function placeType($type){
+        return $this->withMeta([
+            'type' => $type
         ]);
     }
 
