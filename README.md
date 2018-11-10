@@ -35,7 +35,7 @@ Add the below to /resources/views/vendor/nova/layout.blade.php (this you can cop
 
 ## Usage
 
-Add the use decalaration to your resource and use the fields:
+Add the use declaration to your resource and use the fields:
 
 ```php
 use EmilianoTisato\GoogleAutocomplete\GoogleAutocomplete;
@@ -54,7 +54,7 @@ GoogleAutocomplete::make('Address')
           ->countries(['US','AU]),
 ```
 
-You can access other parameter like `latitude, longitude, street_number, route, locality, administrative_area_level_1, country, postal_code` and whatever is available by de Places API with the available AddressMetadata field:
+You can access other parameter like `latitude, longitude, street_number, route, locality, administrative_area_level_1, country, postal_code` and whatever is available by the Places API with the available AddressMetadata field:
 
 ```php
 use EmilianoTisato\GoogleAutocomplete\AddressMetadata;
@@ -74,7 +74,16 @@ AddressMetadata::make('long')->fromValue('longitude')->disabled(),
 AddressMetadata::make('long')->fromValue('longitude')->invisible(),
 ```
 
+You can change the type of places that are returned by the autocomplete using the placeType() method.  You can use any of the values listed at [https://developers.google.com/places/supported_types#table3](https://developers.google.com/places/supported_types#table3)  
 
+```php
+use EmilianoTisato\GoogleAutocomplete\AddressMetadata;
+use EmilianoTisato\GoogleAutocomplete\GoogleAutocomplete;
+
+// This autocomplete field will return results that match a business name instead of address.
+// All the same address data is still stored.  
+GoogleAutocomplete::make('Address')->placeType('establishment');
+```
 ## Localization
 
 If you want this package in your language, just create a json lang file in your `resources/lang/vendor/google-autocomplete` folder. Example

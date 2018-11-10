@@ -9,6 +9,7 @@
                         :class="errorClasses"
                         :placeholder="placeholder"
                         :country="field.countries"
+                        :types="field.type"
                         v-model="value"
                         v-on:keypress.enter.prevent=""
                         v-on:placechanged="getAddressData">
