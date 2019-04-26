@@ -73,6 +73,12 @@ export default {
                     })
                 }
             });
+            
+            if(placeResultData.hasOwnProperty(element)) {
+                Nova.$emit('address-metadata-update-' + element, {
+                    value: placeResultData[element]
+                })
+            }
         },
 
         /*
