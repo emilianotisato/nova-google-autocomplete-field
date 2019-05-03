@@ -72,13 +72,13 @@ export default {
                         value: addressData[element]
                     })
                 }
+
+                if(placeResultData.hasOwnProperty(element)) {
+                    Nova.$emit('address-metadata-update-' + element, {
+                        value: placeResultData[element]
+                    })
+                }
             });
-            
-            if(placeResultData.hasOwnProperty(element)) {
-                Nova.$emit('address-metadata-update-' + element, {
-                    value: placeResultData[element]
-                })
-            }
         },
 
         /*
