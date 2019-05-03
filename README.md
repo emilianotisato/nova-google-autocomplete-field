@@ -54,7 +54,7 @@ GoogleAutocomplete::make('Address')
           ->countries(['US','AU]),
 ```
 
-You can access other parameter like `latitude, longitude, street_number, route, locality, administrative_area_level_1, country, postal_code` and whatever is available by the Places API with the available AddressMetadata field:
+You can access other parameter like `latitude, longitude, street_number, route, locality, administrative_area_level_1, country, postal_code`, along with everything available in the - every field present in the [PlaceResult object](https://developers.google.com/maps/documentation/javascript/reference/#PlaceResult)
 
 ```php
 use EmilianoTisato\GoogleAutocomplete\AddressMetadata;
