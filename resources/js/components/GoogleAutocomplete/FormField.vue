@@ -1,15 +1,15 @@
 <template>
-    <default-field :field="field">
+    <default-field :field="this.field">
         <template slot="field">
             <div class="form-group">
                 <vue-google-autocomplete
                         ref="address"
-                        :id="field.name"
+                        :id="this.field.name"
                         class="w-full form-control form-input form-input-bordered"
                         :class="errorClasses"
                         :placeholder="placeholder"
-                        :country="field.countries"
-                        :types="field.type"
+                        :country="this.field.countries"
+                        :types="this.field.type"
                         v-model="value"
                         v-on:keypress.enter.prevent=""
                         v-on:placechanged="getAddressData">
