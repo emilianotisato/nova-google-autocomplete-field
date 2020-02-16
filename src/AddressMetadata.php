@@ -35,7 +35,7 @@ class AddressMetadata extends Text
      * The value for autocomplete
      *
      * @param string $addressValue
-     * @return void
+     * @return $this
      */
     public function fromValue(string $addressValue)
     {
@@ -45,7 +45,7 @@ class AddressMetadata extends Text
     /**
      * Set the field in disabled mode
      *
-     * @return void
+     * @return $this
      */
     public function disabled()
     {  
@@ -55,7 +55,7 @@ class AddressMetadata extends Text
     /**
      * Set the field invisible but save it
      *
-     * @return void
+     * @return $this
      */
     public function invisible()
     {  
