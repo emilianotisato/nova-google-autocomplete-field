@@ -37,7 +37,7 @@ class GoogleAutocomplete extends Field
      * Pass a country codes array
      *
      * @param [type] $list
-     * @return void
+     * @return $this
      */
     public function countries($list){
         return $this->withMeta([
@@ -51,7 +51,7 @@ class GoogleAutocomplete extends Field
      * https://developers.google.com/places/supported_types#table3
      *
      * @param string $type
-     * @return void
+     * @return $this
      */
     public function placeType($type){
         return $this->withMeta([
