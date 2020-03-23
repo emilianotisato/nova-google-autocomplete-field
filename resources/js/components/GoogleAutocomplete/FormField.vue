@@ -18,7 +18,7 @@
 
             <p v-if="value != ''" class="my-2 text-success">{{ translate.current_address }}: {{ value }}</p>
 
-            <p v-if="hasError" class="my-2 text-danger">
+            <p v-if="hasError" class="help-text error-text mt-2 text-danger">
                 {{ firstError }}
             </p>
         </template>
