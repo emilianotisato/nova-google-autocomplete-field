@@ -74,6 +74,23 @@ AddressMetadata::make('long')->fromValue('longitude')->disabled(),
 AddressMetadata::make('long')->fromValue('longitude')->invisible(),
 ```
 
+If you want to concatenate certain elements of the geocoded object that is returned by Google, using `{{` and `}}`, wrap the key like you would above; like so:
+
+```php
+use EmilianoTisato\GoogleAutocomplete\AddressMetadata;
+use EmilianoTisato\GoogleAutocomplete\GoogleAutocomplete;
+
+GoogleAutocomplete::make('Address')->withValues(['latitude', 'longitude']),
+
+AddressMetadata::make('coordinates')->fromValue('{{latitude}}, {{longitude}}'),
+```  
+
+So the value that would be rendered within the coordinates filed would be something like:
+
+```
+39.3315476, -94.9363912
+```
+
 You can change the type of places that are returned by the autocomplete using the placeType() method.  You can use any of the values listed at [https://developers.google.com/places/supported_types#table3](https://developers.google.com/places/supported_types#table3)  
 
 ```php
