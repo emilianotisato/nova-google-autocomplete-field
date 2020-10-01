@@ -61,24 +61,25 @@ export default {
         /**
          * Get address
          */
-        getAddressData: function (addressData, placeResultData) {
+        getAddressData(addressData, placeResultData) {
             // Save current data address as a string
             this.handleChange(placeResultData.formatted_address)
+
+            const retrievedAddress = {};
 
             // Emmit events to by catch up for the other AddressMetadata fields
             this.field.addressObject.forEach(element => {
                 if(addressData.hasOwnProperty(element)) {
-                    Nova.$emit('address-metadata-update-' + element, {
-                        value: addressData[element]
-                    })
+                    retrievedAddress[element] = addressData[element];
                 }
-
                 if(placeResultData.hasOwnProperty(element)) {
-                    Nova.$emit('address-metadata-update-' + element, {
-                        value: placeResultData[element]
-                    })
+                    retrievedAddress[element] = placeResultData[element];
                 }
             });
+
+            Nova.$emit('address-metadata-update', {
+                ...retrievedAddress
+            })
         },
 
         /*

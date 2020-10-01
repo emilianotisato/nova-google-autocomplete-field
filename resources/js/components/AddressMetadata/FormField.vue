@@ -30,9 +30,37 @@ export default {
      * Mount the component.
      */
     mounted() {
-        Nova.$on('address-metadata-update-' + this.field.addressValue, ({value}) => {
-            this.value = value;
-        })
+        if (this.field.addressValue.indexOf('{{') >= 0) {
+            let bracketRegex = /\{\{.*?\}\}/g;
+            let match;
+            let addressParts = [];
+
+            do {
+                match = bracketRegex.exec(this.field.addressValue);
+                if (match !== null) {
+                    let addressValue = match[0].replace('{{','')
+                        .replace('}}','')
+                        .trim();
+                    addressParts.push(addressValue);
+                }
+            } while (match !== null);
+
+            Nova.$on('address-metadata-update', locationObject => {
+                let addressValue = this.field.addressValue;
+
+                for(let i = 0; i < addressParts.length; i++) {
+                    let part = addressParts[i];
+                    addressValue = addressValue.replace(`{{ ${part} }}`, locationObject[part])
+                        .replace(`{{${part}}}`, locationObject[part])
+                }
+
+                this.value = addressValue;
+            });
+        } else {
+            Nova.$on('address-metadata-update', locationObject => {
+                this.value = locationObject[this.field.addressValue];
+            })
+        }
     },
 
     methods: {
