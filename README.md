@@ -85,7 +85,7 @@ GoogleAutocomplete::make('Address')->withValues(['latitude', 'longitude']),
 AddressMetadata::make('coordinates')->fromValue('{{latitude}}, {{longitude}}'),
 ```  
 
-So the value that would be rendered within the coordinates filed would be something like:
+So the value that would be rendered within the coordinates input would be something like:
 
 ```
 39.3315476, -94.9363912
