@@ -51,6 +51,8 @@ export default {
                 for(let i = 0; i < addressParts.length; i++) {
                     let part = addressParts[i];
                     addressValue = addressValue.replace(`{{ ${part} }}`, locationObject[part])
+                        .replace(`{{${part} }}`, locationObject[part])
+                        .replace(`{{ ${part}}}`, locationObject[part])
                         .replace(`{{${part}}}`, locationObject[part])
                 }
 
