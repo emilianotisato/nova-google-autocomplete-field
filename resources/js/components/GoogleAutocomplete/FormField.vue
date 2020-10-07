@@ -69,11 +69,25 @@ export default {
 
             // Emmit events to by catch up for the other AddressMetadata fields
             this.field.addressObject.forEach(element => {
-                if(addressData.hasOwnProperty(element)) {
-                    retrievedAddress[element] = addressData[element];
-                }
-                if(placeResultData.hasOwnProperty(element)) {
-                    retrievedAddress[element] = placeResultData[element];
+                if (element.indexOf('.') < 0) {
+                    if(addressData.hasOwnProperty(element)) {
+                        retrievedAddress[element] = addressData[element];
+                    }
+                    if(placeResultData.hasOwnProperty(element)) {
+                        retrievedAddress[element] = placeResultData[element];
+                    }
+                } else {
+                    // Separates the type
+                    let value = element.split(".")[0];
+                    let type = element.split(".")[1]; // long_name or short_name
+
+                    for(let i = 0; i < placeResultData.address_components.length; i++) {
+                        let target = placeResultData.address_components[i];
+
+                        if (target.types.includes(value)) {
+                            retrievedAddress[value] = target[type];
+                        }
+                    }
                 }
             });
 
