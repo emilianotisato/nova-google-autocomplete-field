@@ -25,13 +25,14 @@ class FieldServiceProvider extends ServiceProvider
             ], 'google-autocomplete-config');
         }
 
-        
+
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'google-autocomplete');
         $this->loadJsonTranslationsFrom(resource_path('lang/vendor/google-autocomplete'));
 
         Nova::serving(function (ServingNova $event) {
             Nova::script('google-autocomplete', __DIR__.'/../dist/js/field.js');
             Nova::style('google-autocomplete', __DIR__.'/../dist/css/field.css');
+            Nova::remoteScript('https://maps.googleapis.com/maps/api/js?key='.config('google-autocomplete.api_key').'&libraries=places');
             Nova::provideToScript([
                 'google_autocomplete_translations' => $this->getTranslations(),
             ]);
@@ -60,7 +61,7 @@ class FieldServiceProvider extends ServiceProvider
         if (! is_readable($translationFile)) {
             return [];
         }
-        
+
         return json_decode(file_get_contents($translationFile), true);
     }
 }
