@@ -25,13 +25,6 @@ Add the below to your `.env` file
 ADDRESS_AUTOCOMPLETE_API_KEY=############################
 ```
 
-Add the below to /resources/views/vendor/nova/layout.blade.php (this you can copy from the nova repository to override the original)
-
-* To get results in specific language add `&language=en` to the below script url
-
-```php
-<script src="https://maps.googleapis.com/maps/api/js?key={{config('google-autocomplete.api_key')}}&libraries=places"></script>
-```
 
 ## Usage
 
