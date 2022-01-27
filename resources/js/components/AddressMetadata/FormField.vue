@@ -88,10 +88,3 @@ export default {
     }
 }
 </script>
-
-<style>
-    .invisible {
-        visibility: hidden;
-        position: absolute;
-    }
-</style>
