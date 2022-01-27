@@ -1,21 +1,19 @@
 <template>
-    <component :is="field.invisible ? 'div' : 'template'" :class="{ invisible: field.invisible }">
-        <default-field :field="field">
-            <template slot="field">
-                <input :id="field.name" type="text"
-                    :disabled="field.disabled"
-                    class="w-full form-control form-input form-input-bordered"
-                    :class="errorClasses"
-                    :placeholder="field.name"
-                    v-model="value"
-                />
+    <default-field :field="field" v-show="field.invisible !== true">
+        <template slot="field">
+            <input :id="field.name" type="text"
+                :disabled="field.disabled"
+                class="w-full form-control form-input form-input-bordered"
+                :class="errorClasses"
+                :placeholder="field.name"
+                v-model="value"
+            />
 
-                <p v-if="hasError" class="help-text error-text mt-2 text-danger">
-                    {{ firstError }}
-                </p>
-            </template>
-        </default-field>
-    </component>
+            <p v-if="hasError" class="help-text error-text mt-2 text-danger">
+                {{ firstError }}
+            </p>
+        </template>
+    </default-field>
 </template>
 
 <script>
