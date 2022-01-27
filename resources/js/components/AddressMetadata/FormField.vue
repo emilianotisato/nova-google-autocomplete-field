@@ -1,5 +1,5 @@
 <template>
-    <div :class="{ invisible: field.invisible }">
+    <component :is="field.invisible ? 'div' : 'template'" :class="{ invisible: field.invisible }">
         <default-field :field="field">
             <template slot="field">
                 <input :id="field.name" type="text"
@@ -15,7 +15,7 @@
                 </p>
             </template>
         </default-field>
-    </div>
+    </component>
 </template>
 
 <script>
