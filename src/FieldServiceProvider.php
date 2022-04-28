@@ -38,6 +38,29 @@ class FieldServiceProvider extends ServiceProvider
             ]);
         });
 
+        Nova::router()
+        ->group(function ($router) {
+            $router->get('index-google-autocomplete', function ($request) {
+                return inertia('IndexGoogleAutocomplete');
+            });
+            $router->get('detail-google-autocomplete', function ($request) {
+                return inertia('DetailGoogleAutocomplete');
+            });
+            $router->get('form-google-autocomplete', function ($request) {
+                return inertia('FormGoogleAutocomplete');
+            });
+
+            $router->get('index-address-metadata', function ($request) {
+                return inertia('IndexAddressMetadata');
+            });
+            $router->get('detail-address-metadata', function ($request) {
+                return inertia('DetailAddressMetadata');
+            });
+            $router->get('form-address-metadata', function ($request) {
+                return inertia('FormAddressMetadata');
+            });
+        });
+
     }
 
     /**
